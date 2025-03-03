@@ -1,6 +1,12 @@
 open System
 #load "io.fsx"
-let x: int = abs(IO.Input "Введите кол-во элементов: ")
+printfn "Введите кол-во элементов списка"
+let x =
+    try 
+        Console.ReadLine() |> int
+    with
+        | _ -> failwith "ОШИБКА некорректный ввод"
+if x < 0 then failwith "ОШИБКА некорректный ввод"
 let random = Random()
 let getFirstDigit number =
     number.ToString().[0] |> string |> int
